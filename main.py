@@ -36,9 +36,7 @@ with open("50_states.csv") as us_states:
             known_states.append(state_name)
             score = score + 1
         elif state_name == "Exit":
-            for i in state_row_list:
-                if i not in known_states:
-                    unknown_states.append(i)
+            unknown_states = [i for i in state_row_list if i not in known_states]           # List comprehensions used.
             game_on = False
             screen.exitonclick()
 
